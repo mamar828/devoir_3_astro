@@ -1,0 +1,8 @@
+Column 1 : Time [yr]
+Column 2 : ⍺ = 2.35, M_{up} = 100 M_☉
+Column 3 : ⍺ = 3.30, M_{up} = 100 M_☉
+Column 4 : ⍺ = 2.35, M_{up} = 30 M_☉
+
+M = 10^6 M_☉
+M_{low} = 1 M_☉
+SFR = 1 M_☉/a
