@@ -15,13 +15,13 @@ def make_5_panel_figure(star_formation_law: str):
     def plot_file(axis, filename, color):
         for file_column, style in enumerate(["solid", "dashed", "dotted"]):
             array = get_array(filename)
-            axs[axis].plot(np.log10(array[:,0]), array[:,file_column+1], linestyle=style, color=color)
+            axs[axis].plot(np.log10(array[:,0]), array[:,file_column+1], linestyle=style, color=color, linewidth=1)
         axs[axis].set_xlim(6, 9)
         axs[axis].tick_params(direction="in")
 
     plot_file((0, 0), f"data/colors/b_v/{law}/bv_{law_f}_a.dat", "cornflowerblue")
     plot_file((0, 0), f"data/colors/b_v/{law}/bv_{law_f}_e.dat", "crimson")
-    axs[0, 0].set_ylim(-0.2, 0.3)
+    axs[0, 0].set_ylim(-0.25, 0.3)
     axs[0, 0].invert_yaxis()
     axs[0, 0].set_title("(B-V)")
 
@@ -33,21 +33,21 @@ def make_5_panel_figure(star_formation_law: str):
 
     plot_file((1, 0), f"data/halpha_width/{law}/wha_{law_f}_a.dat", "cornflowerblue")
     plot_file((1, 0), f"data/halpha_width/{law}/wha_{law_f}_e.dat", "crimson")
-    axs[1, 0].set_ylim(1, 4)
+    axs[1, 0].set_ylim(-1, 4)
     axs[1, 0].set_title(r"Largeur équivalente de H$\alpha$")
 
     plot_file((2, 0), f"data/photon_number/below_228/{law}/228_{law_f}_a.dat", "cornflowerblue")
     plot_file((2, 0), f"data/photon_number/below_228/{law}/228_{law_f}_e.dat", "crimson")
-    axs[2, 0].set_ylim(46, 51)
-    axs[2, 0].set_title(r"Nombre de photons sous 228 $\AA$")
+    axs[2, 0].set_ylim(44, 51)
+    axs[2, 0].set_title(r"Nombre de photons sous 228 $\rm\AA$")
 
     plot_file((2, 1), f"data/photon_number/below_912/{law}/912_{law_f}_a.dat", "cornflowerblue")
     plot_file((2, 1), f"data/photon_number/below_912/{law}/912_{law_f}_e.dat", "crimson")
-    axs[2, 1].set_ylim(51, 54)
-    axs[2, 1].set_title(r"Nombre de photons sous 912 $\AA$")
+    axs[2, 1].set_ylim(44, 54)
+    axs[2, 1].set_title(r"Nombre de photons sous 912 $\rm\AA$")
 
     axs[0, 0].set_ylabel("indice de couleur [-]")
-    axs[1, 0].set_ylabel(r"log (W(H$\alpha$) [$\AA$])")
+    axs[1, 0].set_ylabel(r"log (W(H$\alpha$) [$\rm\AA$])")
     axs[2, 0].set_ylabel(r"log (N(H$^\degree$) [photons s$^{-1}$])")
     fig.supxlabel("log (Time [yr])")
 
