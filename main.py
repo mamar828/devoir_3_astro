@@ -63,7 +63,8 @@ def make_5_panel_figure(star_formation_law: str):
     )
 
     plt.tight_layout()
-    plt.show()
+    plt.savefig(f"figures/{star_formation_law}_5_panel.png", dpi=600, bbox_inches="tight")
+    # plt.show()
 
 
 make_5_panel_figure("continuous")
