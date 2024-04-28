@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.lines as mlines
 import matplotlib.patches as mpatches
+import matplotlib.ticker as ticker
 
 from tools import get_array, plot_file
 
@@ -17,6 +18,10 @@ def make_5_panel_figure(star_formation_law: str):
             array = get_array(filename)
             axs[axis].plot(np.log10(array[:,0]), array[:,file_column+1], linestyle=style, color=color, linewidth=1)
         axs[axis].set_xlim(6, 9)
+        axs[axis].xaxis.set_major_locator(ticker.MultipleLocator(0.5))
+        axs[axis].xaxis.set_minor_locator(ticker.MultipleLocator(0.1))
+        axs[axis].xaxis.set_tick_params(direction="in", which="both")
+        axs[axis].xaxis.set_tick_params(direction="in", which="both")
         axs[axis].tick_params(direction="in")
 
     plot_file((0, 0), f"data/colors/b_v/{law}/bv_{law_f}_a.dat", "cornflowerblue")
@@ -67,5 +72,5 @@ def make_5_panel_figure(star_formation_law: str):
     # plt.show()
 
 
-make_5_panel_figure("continuous")
-make_5_panel_figure("instantaneous")
+# make_5_panel_figure("continuous")
+# make_5_panel_figure("instantaneous")
