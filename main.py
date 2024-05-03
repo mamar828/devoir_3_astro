@@ -221,7 +221,7 @@ def make_slope_halpha_instantaneous_figure():
     # plt.show()
 
 
-make_slope_halpha_instantaneous_figure()
+# make_slope_halpha_instantaneous_figure()
 
 
 def make_photons_figure():
